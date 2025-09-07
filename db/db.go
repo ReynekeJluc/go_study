@@ -23,7 +23,7 @@ func init() {
 func ConnectDB() (*sql.DB, error) {
 	dbPath := os.Getenv("DB_PATH")
 	if dbPath == "" {
-		dbPath = "db/database.db"
+		dbPath = "database.db"
 	}
 
 	db, err := sql.Open("sqlite", dbPath)
