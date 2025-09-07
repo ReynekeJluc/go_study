@@ -17,8 +17,8 @@ CREATE TABLE Book (
 	book_pages_amount INTEGER NOT NULL,
 	book_desc TEXT,
 	book_price REAL NOT NULL,
-	book_cover INTEGER,          -- 0/1
-	book_super_cover INTEGER,    -- 0/1
+	book_cover INTEGER NOT NULL,          -- 0/1
+	book_super_cover INTEGER NOT NULL,    -- 0/1
 	book_publisher TEXT,
 	book_year_release INTEGER NOT NULL,
 	book_isbn TEXT NOT NULL
