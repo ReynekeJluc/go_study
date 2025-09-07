@@ -61,6 +61,7 @@ func UpdateBook(w http.ResponseWriter, r *http.Request) {
 		book.ISBN,
 		id,
 	)
+	book.Id = id
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		json.NewEncoder(w).Encode(map[string]string{
