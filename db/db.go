@@ -17,15 +17,13 @@ func init() {
 	if err := godotenv.Load(); err != nil {
 		log.Fatalf("ошибка загрузки env переменных: %s", err)
 	}
-	
-	ConnectDB()
 }
 
 // ConnectDB открывает соединение с SQLite и возвращает объект *sql.DB
 func ConnectDB() (*sql.DB, error) {
 	dbPath := os.Getenv("DB_PATH")
 	if dbPath == "" {
-		dbPath = "database.db"
+		dbPath = "db/database.db"
 	}
 
 	db, err := sql.Open("sqlite", dbPath)

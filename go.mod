@@ -3,6 +3,7 @@ module github.com/ReynekeJluc/go_study.git
 go 1.24.2
 
 require (
+	github.com/gorilla/mux v1.8.1
 	github.com/joho/godotenv v1.5.1
 	modernc.org/sqlite v1.38.2
 )
