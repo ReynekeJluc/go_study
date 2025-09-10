@@ -9,8 +9,8 @@ CRUD-проект на Go с использованием Gorilla Mux и SQLite3
 Роутинг и маршрутизация в ../routes/router.go
 
 Запуск проекта:  
-git clone https://github.com/ReynekeJluc/go_study.git
-cd go_study
+git clone https://github.com/ReynekeJluc/go_study.git  
+cd go_study  
 go mod tidy  
 go run main.go  
 REST запросы лежат в ../http/test.http
