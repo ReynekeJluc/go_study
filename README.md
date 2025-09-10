@@ -7,6 +7,7 @@ CRUD-проект на Go с использованием Gorilla Mux и SQLite3
 Подключение к бд в ../db/db.go  
 Модели и структуры в ../struct/...  
 Роутинг и маршрутизация в ../routes/router.go
+CRUD эндпоинты в ../handlers/...
 
 Запуск проекта:  
 git clone https://github.com/ReynekeJluc/go_study.git  
