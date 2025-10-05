@@ -12,6 +12,10 @@ DELETE FROM Genre;
 DELETE FROM sqlite_sequence WHERE name='Genre';
 DELETE FROM Book;
 DELETE FROM sqlite_sequence WHERE name='Book';
+DELETE FROM Tokens;
+DELETE FROM sqlite_sequence WHERE name='Tokens';
+DELETE FROM Users;
+DELETE FROM sqlite_sequence WHERE name='Users';
 
 
 -- наполнение Book 
@@ -146,6 +150,31 @@ VALUES
 	);
 
 
+-- INSERT INTO Users(user_id, login, password) VALUES 
+-- 	(1, 'ra_1', '$2a$10$QValB6C1UyBouRTWN1uh7eg5PT2SXgCv50wgATS3c/OH8cfW6/3.q'),
+-- 	(2, 'ra_2', '$2a$10$QValB6C1UyBouRTWN1uh7eg5PT2SXgCv50wgATS3c/OH8cfW6/3.q'),
+-- 	(3, 'admin', '$2a$10$uf3GsGZVszezNmJfoKhmwO1q2FS7U1aAQVz.3m1uqOC3zW.UHauvu')
+-- ;
+
+INSERT INTO Users(login, password) VALUES 
+	('ra_1', '$2a$10$QValB6C1UyBouRTWN1uh7eg5PT2SXgCv50wgATS3c/OH8cfW6/3.q'),
+	('ra_2', '$2a$10$QValB6C1UyBouRTWN1uh7eg5PT2SXgCv50wgATS3c/OH8cfW6/3.q'),
+	('admin', '$2a$10$uf3GsGZVszezNmJfoKhmwO1q2FS7U1aAQVz.3m1uqOC3zW.UHauvu');
+
+
+-- INSERT INTO Tokens(token_id, user_id, token_hash, revoked, expires_at, created_at) VALUES 
+-- 	(1, 1, 'aef702f7f4ae298275b667a6b5ebcc020a514cce4c7b63f8c6c88c650fea5945', false, '2025-11-01 00:00:00', NOW()),
+-- 	(2, 2, '01eaeb8769f8fd56f436935874a844e3dacecbe64871b69eb07221e4b3dc3c34', false, '2025-11-01 00:00:00', NOW()),
+-- 	(3, 3, 'c886d917df55ef8155ecf1a15eee834d70e8ef7fde8b49bd2e24aa565af83a70', false, '2025-11-01 00:00:00', NOW())
+-- ;
+
+INSERT INTO Tokens(user_id, token_hash, revoked, expires_at, created_at) VALUES 
+	(1, 'aef702f7f4ae298275b667a6b5ebcc020a514cce4c7b63f8c6c88c650fea5945', 0, '2025-11-01 00:00:00', CURRENT_TIMESTAMP),
+	(2, '01eaeb8769f8fd56f436935874a844e3dacecbe64871b69eb07221e4b3dc3c34', 0, '2025-11-01 00:00:00', CURRENT_TIMESTAMP),
+	(3, 'c886d917df55ef8155ecf1a15eee834d70e8ef7fde8b49bd2e24aa565af83a70', 0, '2025-11-01 00:00:00', CURRENT_TIMESTAMP);
+
+
+
 -- наполнение BookGenre 
 INSERT INTO BookGenre (
 	book_id,
@@ -170,7 +199,6 @@ VALUES
 	(4, 4);
 
 
-
 -- обновляем сиквенсы автоинкрементов
 UPDATE sqlite_sequence
 SET seq = COALESCE((SELECT MAX(book_id) FROM Book), 0)
@@ -185,3 +213,13 @@ WHERE name = 'Genre';
 UPDATE sqlite_sequence
 SET seq = COALESCE((SELECT MAX(author_id) FROM Author), 0)
 WHERE name = 'Author';
+
+
+UPDATE sqlite_sequence
+SET seq = COALESCE((SELECT MAX(user_id) FROM Users), 0)
+WHERE name = 'Users';
+
+
+UPDATE sqlite_sequence
+SET seq = COALESCE((SELECT MAX(token_id) FROM Tokens), 0)
+WHERE name = 'Tokens';

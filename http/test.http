@@ -1,26 +1,63 @@
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTk2Nzc2MDMsInVzZXJfaWQiOjF9.SBkS4v1u5thJ8gvbiXmfs-ZjZYM8_7TPBd82MLBmjWE
+
+###
+POST /api/auth/login HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "login": "ra_1",
+  "password": "ra"
+}
+###
+
+###
+POST /api/auth/refresh HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "refresh_token": "11a987ff0ee34786645401cc1886d5ae2515f7602a95c143ebae0587e5023f91"
+}
+###
+
+###
+POST /api/auth/logout HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "user_id": 1
+}
+###
+
 ###
 GET /api/books HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 ###
 
 ###
 GET /api/books?search=А HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 ###
 
 ###
 GET /api/books/1 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
-
+Authorization: Bearer {{access_token}}
 ###
 
 ###
 POST /api/books HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 
 {
   "book_name": "Новая книга",
@@ -40,6 +77,7 @@ Content-Type: application/json
 PUT /api/books/2 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 
 {
   "book_name": "Новая книга",
@@ -59,4 +97,5 @@ Content-Type: application/json
 DELETE /api/books/1 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 ###
