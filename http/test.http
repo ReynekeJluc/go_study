@@ -5,6 +5,12 @@ Content-Type: application/json
 ###
 
 ###
+GET /api/books?search=А HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+###
+
+###
 GET /api/books/1 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
