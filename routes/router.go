@@ -19,10 +19,20 @@ func SetupRouter() *mux.Router {
 	}
 
 	r := mux.NewRouter()
+	
+	// Catch-all для OPTIONS
+	r.Methods(http.MethodOptions).HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+		w.WriteHeader(http.StatusOK)
+	})
+	r.Use(middleware.CORSMiddleware)
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "Working!")
 	})
+
 
 	auth_router := r.PathPrefix("/api/auth").Subrouter()
 	api := r.PathPrefix("/api").Subrouter()

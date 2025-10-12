@@ -1,4 +1,4 @@
-@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTk2Nzc2MDMsInVzZXJfaWQiOjF9.SBkS4v1u5thJ8gvbiXmfs-ZjZYM8_7TPBd82MLBmjWE
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAyNzg3MDAsInVzZXJfaWQiOjF9.AYsWkxjl79vw7epZb89BMDNwchR_VsDSwy8p2uGSkHI
 
 ###
 POST /api/auth/login HTTP/1.1
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 {
   "user_id": 1,
-  "refresh_token": "11a987ff0ee34786645401cc1886d5ae2515f7602a95c143ebae0587e5023f91"
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAyNzg2MDYsInVzZXJfaWQiOjF9.Hum-5isFPpss5pzCYFnvi13NEeWGoYkoD7lxbPHYdmg1"
 }
 ###
 
